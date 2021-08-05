@@ -28,10 +28,8 @@
   end is not given, the whole song from start is sung."
   ([start] (sing start 0))
   ([start end]
-    (let [n-verses (+ (- start end) 1)]
-      (->> (range start -1 -1)
-           (take n-verses)
-           (map verse)
-           (interpose "\n")
-           (apply str)))))
+    (->> (range start (- end 1) -1)
+         (map verse)
+         (interpose "\n")
+         (apply str))))
 
