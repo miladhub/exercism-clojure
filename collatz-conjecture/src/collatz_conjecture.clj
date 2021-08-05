@@ -1,12 +1,12 @@
 (ns collatz-conjecture)
 
 (defn next-n [num]
-  (if (= (mod num 2) 0)
+  (if (zero? (mod num 2))
     (/ num 2)
     (+ (* num 3) 1)))
 
 (defn collatz [num]
-  (assert (> num 0))
+  (assert (pos? num))
   (->>
     (iterate next-n num)
     (take-while #(> % 1))
