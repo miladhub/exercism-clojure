@@ -21,14 +21,14 @@
       num " bottles of beer on the wall, "
       num " bottles of beer.\n"
       "Take one down and pass it around, "                                          
-      (- num 1) " bottles of beer on the wall.\n")))
+      (dec num) " bottles of beer on the wall.\n")))
 
 (defn sing
   "Given a start and an optional end, returns all verses in this interval. If
   end is not given, the whole song from start is sung."
   ([start] (sing start 0))
   ([start end]
-    (->> (range start (- end 1) -1)
+    (->> (range start (dec end) -1)
          (map verse)
          (interpose "\n")
          (apply str))))
