@@ -12,11 +12,9 @@
         h' (quot tot 60)
         h (if (and (neg? tot) (pos? m))
             (mod (dec h') 24)
-            (mod h' 24)
-            )]
+            (mod h' 24))]
     {:hours   h
-     :minutes m
-     }))
+     :minutes m}))
 
 (defn add-time [{h :hours m :minutes} time]
   (clock h (+ m time)))
