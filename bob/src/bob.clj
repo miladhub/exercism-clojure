@@ -8,7 +8,7 @@
                    (not-empty chars))
         question (str/ends-with? (str/trim s) "?")
         yelled-question (and all-caps question)
-        not-saying-anything (empty? (re-seq #"[^\s]" s))]
+        not-saying-anything (str/blank? s)]
     (cond
       yelled-question "Calm down, I know what I'm doing!"
       question "Sure."
